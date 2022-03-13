@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>确定元素具体位置的属性输出</title>
+  <style>
+    .container {
+        width: 600px;
+        height: 600px;
+        padding: 10px;
+        border: 10px solid lightgray;
+        overflow: auto;
+    }
+    .large_block {
+        width: 1000px;
+        height: 2000px;
+        background-color: lightblue;
+        padding: 20px;
+        margin: 20px;
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="large_block"></div>
+  </div>
+  <script>
+    
+    let ele = document.querySelector('.container');
+    console.log('clientHeight', ele.clientHeight); // 620
+    console.log('offsetHeight', ele.offsetHeight); // 640
+    console.log('scrollHeight', ele.scrollHeight); // 2100
+    
+    // mac: 620 640 2100
+    // windows: 603 640 2100 {603: windows,滚动条占了可视区域，需要减去}
+
+    console.log('getBoundingClientRect', ele.getBoundingClientRect()); 
+
+  </script>
+</body>
+</html>
